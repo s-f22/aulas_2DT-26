@@ -25,7 +25,7 @@ while (executando)
     switch (opcao)
     {
       case "1":
-        // Cadastrar();
+        Cadastrar();
         break;
       case "2":
         Listar();
@@ -86,3 +86,47 @@ void Pausar()
   Console.WriteLine("\nPressione ENTER para continuar...");
   Console.ReadLine();
 }
+
+
+void Cadastrar()
+{
+  Console.Clear();
+  Console.WriteLine("========= CADASTRAR JOGO ==========");
+
+  var jogo = LerDadosJogo();
+
+  service.Cadastrar(jogo);
+
+  Console.WriteLine("\nJogo cadastrado com sucesso!");
+  Pausar();
+}
+
+
+Jogo LerDadosJogo()
+{
+  Console.Write("Nome: ");
+  string nome = Console.ReadLine()!;
+
+  Console.Write("Desenvolvedora: ");
+  string desenvolvedora = Console.ReadLine()!;
+
+  Console.Write("Gênero: ");
+  string genero = Console.ReadLine()!;
+
+  Console.Write("Ano lançamento: ");
+  int ano = int.Parse(Console.ReadLine()!);
+
+  Console.Write("Preço: ");
+  decimal preco = decimal.Parse(Console.ReadLine()!);
+
+  return new Jogo
+  {
+    Nome = nome,
+    Desenvolvedora = desenvolvedora,
+    Genero = genero,
+    AnoLancamento = ano,
+    Preco = preco
+  };
+
+}
+

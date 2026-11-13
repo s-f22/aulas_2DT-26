@@ -13,11 +13,15 @@ namespace GestaoJogos.Services
             _repository = repository;
         }
 
-
         public List<Jogo> Listar()
         {
             return _repository.Listar();
         }
+
+        public void Cadastrar(Jogo jogo) => _repository.Adicionar(jogo);
+        // {
+        //     _repository.Adicionar(jogo);
+        // }
 
     }
 }
